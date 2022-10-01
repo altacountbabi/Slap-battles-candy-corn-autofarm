@@ -15,7 +15,7 @@ local candyCornAmtThreshold = {
 local lp = srv.plrs.LocalPlayer
 local mouse = lp:GetMouse()
 local char = lp.Character or workspace:WaitForChild(lp.Name)
-local qot = queue_on_teleport or queueonteleport
+local qot = queueonteleport or queue_on_teleport or syn.queue_on_teleport
 
 lp.OnTeleport:Connect(function(state)
     if state == Enum.TeleportState.Started then
