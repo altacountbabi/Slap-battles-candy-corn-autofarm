@@ -15,7 +15,7 @@ local candyCornAmtThreshold = {
 local lp = srv.plrs.LocalPlayer
 local mouse = lp:GetMouse()
 local char = lp.Character or workspace:WaitForChild(lp.Name)
-local qot = queueonteleport or queue_on_teleport or syn.queue_on_teleport
+local qot = queue_on_teleport or queueonteleport
 
 lp.OnTeleport:Connect(function(state)
     if state == Enum.TeleportState.Started then
@@ -68,10 +68,9 @@ function TPReturner()
                task.wait()
                pcall(function()
                    writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
-                   wait()
+                   task.wait()
                    game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
                end)
-               task.wait(4)
            end
        end
    end
@@ -95,9 +94,7 @@ end
 
 local function getcandycorn()
     for _,v in next, workspace.CandyCorns:GetChildren() do
-        firetouchinterest(v, char.Head, 0)
-        task.wait()
-        firetouchinterest(v, char.Head, 1)
+        tp(v.CFrame)
     end
 end
 
