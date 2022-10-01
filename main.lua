@@ -17,8 +17,12 @@ local mouse = lp:GetMouse()
 local char = lp.Character or workspace:WaitForChild(lp.Name)
 local qot = queue_on_teleport or queueonteleport
 
+lp.OnTeleport:Connect(function(state)
+    if state == Enum.TeleportState.Started then
+        qot(game:HttpGet('https://raw.githubusercontent.com/altacountbabi/Slap-battles-candy-corn-autofarm/main/main.lua'))
+    end
+end)
 
-qot(game:HttpGet(''))
 
 
 Time = 0
